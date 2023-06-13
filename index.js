@@ -31,7 +31,7 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         content: {
             /* Location of file where it is hosted */
             location: {
-                url: "https://raw.githubusercontent.com/panoptic-labs/whitepaper/main/Panoptic_Whitepaper_v1.3.pdf",
+                url: "https://raw.githubusercontent.com/panoptic-labs/whitepaper/main/Panoptic_Whitepaper_v1.3.1.pdf",
                 /*
                 If the file URL requires some additional headers, then it can be passed as follows:-
                 headers: [
@@ -46,7 +46,7 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         /* Pass meta data of file */
         metaData: {
             /* file name */
-            fileName: "Panoptic Whitepaper v1.3.pdf"
+            fileName: "Panoptic Whitepaper v1.3.1.pdf"
         }
     }, viewerConfig);
 });
