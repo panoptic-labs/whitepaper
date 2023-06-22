@@ -1,6 +1,6 @@
 # The Panoptic Whitepaper
 
-The original Panoptic whitepaper was created during the fall of 2022 and released to the public in the spring of 2023.
+The original Panoptic whitepaper was created during the fall of 2021 and released to the public in the spring of 2022.
 
 This GitHub repository is the primary resource for the official whitepaper of our ground-breaking project Panoptic.
 
