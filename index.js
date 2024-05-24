@@ -17,6 +17,24 @@ const viewerConfig = {
 
 /* Wait for Adobe Acrobat Services PDF Embed API to be ready */
 document.addEventListener("adobe_dc_view_sdk.ready", function () {
+    const pipsFileName = "Panoptic PIPs v1.0.0.pdf"
+    const pipsUrl = 'https://raw.githubusercontent.com/panoptic-labs/whitepaper/main/Panoptic_PIPs_v1.0.0.pdf'
+    const pipsMetadata = {
+        url: pipsUrl,
+        fileName: pipsFileName,
+    }
+    const whitepaperFileName = "Panoptic Whitepaper v1.3.1.pdf"
+    const whitepaperUrl = 'https://raw.githubusercontent.com/panoptic-labs/whitepaper/main/Panoptic_Whitepaper_v1.3.1.pdf'
+    const whitepaperMetadata = {
+        url: whitepaperUrl,
+        fileName: whitepaperFileName,
+    }
+
+    // If subdomain is "pips", fileToPreview will be pipsUrl.
+    // If subdomain is "paper", fileToPreview will be whitepaperUrl.
+    // Otherwise, fileToPreview should be empty string.
+    const fileToView = window.location.host.includes("pips")? pipsMetadata : window.location.host.includes("paper")? whitepaperMetadata : "";
+
     /* Initialize the AdobeDC View object */
     var adobeDCView = new AdobeDC.View({
         /* Pass your registered client id */
@@ -31,7 +49,7 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         content: {
             /* Location of file where it is hosted */
             location: {
-                url: "https://raw.githubusercontent.com/panoptic-labs/whitepaper/main/Panoptic_Whitepaper_v1.3.1.pdf",
+                url: fileToView.url,
                 /*
                 If the file URL requires some additional headers, then it can be passed as follows:-
                 headers: [
@@ -46,7 +64,7 @@ document.addEventListener("adobe_dc_view_sdk.ready", function () {
         /* Pass meta data of file */
         metaData: {
             /* file name */
-            fileName: "Panoptic Whitepaper v1.3.1.pdf"
+            fileName: fileToView.fileName
         }
     }, viewerConfig);
 });
